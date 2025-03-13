@@ -4,8 +4,12 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        backgroundColor: "#0E151D",
-        color: "white",
+        bg: "linear-gradient(to bottom, #0b1120 0%, #0d1224 50%, #12142e 100%)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed", // Keeps it fixed on scroll
+        minHeight: "100vh",
+        color: "white", // Ensures good contrast
         fontFamily: "Poppins",
         overflowX: "hidden",
         width: "100%",
@@ -98,31 +102,44 @@ const theme = extendTheme({
         },
       },
     },
-    Select: {
-      variants: {
-        primarySelect: {
-          field: {
-            background: "#1B2D46",
-            height: 16,
-            borderRadius: "16px",
-            border: "2px solid rgba(255, 255, 255, 0.34)",
-            outline: "none",
-            _focus: {
-              outline: "none",
-              border: "2px solid rgba(255, 255, 255, 0.34)",
-            },
-            _placeholder: {
-              color: "#FFFFFF4D",
-            },
-          },
-        },
-      },
-    },
+
     Divider: {
       variants: {
         primaryDivider: {
           h: "1px",
           bgGradient: "linear(to-r, #FFFFFF00, #FFFFFF4D, #FFFFFF00)",
+        },
+      },
+    },
+
+    Select: {
+      baseStyle: {
+        field: {
+          bg: "linear-gradient(to right, #0b1120, #0d1224)", // Background color
+          color: "white",
+          borderColor: "gray.600",
+          _hover: { bg: "#12142e" },
+          _focus: {
+            bg: "linear-gradient(to right, #0b1120, #0d1224)",
+            borderColor: "blue.400",
+            boxShadow: "0 0 0 1px blue.400",
+          },
+        },
+      },
+    },
+    Menu: {
+      baseStyle: {
+        list: {
+          bg: "linear-gradient(to right, #0b1120, #0d1224) !important", // Background of dropdown
+          color: "white",
+          borderRadius: "8px",
+          border: "1px solid gray",
+        },
+        item: {
+          bg: "transparent",
+          _hover: { bg: "#1a1f36" }, // Hover color for options
+          _focus: { bg: "#1a1f36" },
+          _active: { bg: "#1a1f36" },
         },
       },
     },
